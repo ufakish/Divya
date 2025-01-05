@@ -5,7 +5,7 @@ from pyrogram import Client, filters
 
 
 START = """**
-{} ᴛʜᴇ ꜱᴜᴘᴇʀғᴀꜱᴛ ᴄʜᴀᴛʙᴏᴛ 💞
+ <blockquote>{} ᴛʜᴇ ꜱᴜᴘᴇʀғᴀꜱᴛ ᴄʜᴀᴛʙᴏᴛ 💞
 
 ➪ ꜱᴜᴘᴘᴏʀᴛꜱ ᴛᴇxᴛ, ꜱᴛɪᴄᴋᴇʀ, ᴘʜᴏᴛᴏ, ᴠɪᴅᴇᴏ...
 ➪ ᴍᴜʟᴛɪ-ʟᴀɴɢᴜᴀɢᴇ ғᴏʀ ᴇᴀᴄʜ ᴄʜᴀᴛ /setlang
@@ -21,6 +21,7 @@ START = """**
 ║ ➻ ᴍʏ ʀᴇᴘᴏ ➪ [ᴄʟɪᴄᴋ ʜᴇʀᴇ](https://github.com/ksdofficial8/chatbot)  
 ║ ➻ ᴅᴇᴠᴇʟᴏᴘᴇʀ ➪ [ʜᴜɴᴛᴇʀ xᴅ](https://t.me/ll_hunter_lll)                         
 ╚═════════════════╝
+</blockquote>
 **"""
 
 HELP_READ = f"""**
