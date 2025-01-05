@@ -1,3 +1,11 @@
+aiofiles
+aiohttp
+asyncio
+beautifulsoup4
+dnspython
+ffmpeg-python
+gitpython
+hachoir
 Abg==2.3.1
 pyrogram==2.0.106
 pymongo
