@@ -285,7 +285,7 @@ async def start(_, m: Message):
         umm = await m.reply_sticker(sticker=random.choice(STICKER))
         await m.reply_photo(
             photo=random.choice(IMG),
-            caption=f"""<blockquote>**๏dd ʜᴇʏ, ɪ ᴀᴍ **\n**➻ ᴀɴ ᴀɪ ʙᴀsᴇᴅ ᴄʜᴀᴛʙᴏᴛ.**\n**──────────────**\n**➻ ᴜsᴀɢᴇ /chatbot [ᴏɴ/ᴏғғ]**\n<b>||๏ ʜɪᴛ ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ғᴏʀ ʜᴇʟᴘ||</b></blockquote>""",
+            caption=f"""<blockquote>**๏dd ʜᴇʏ, ɪ ᴀᴍ **\n**➻ ᴀɴ ᴀɪ ʙᴀsᴇᴅ ᴄʜᴀᴛʙᴏᴛ.**\n**──────────────**\n**➻ ᴜsᴀɢᴇ /chatbot [ᴏɴ/ᴏғғ]**\n</blockquote><blockquote><b>||๏ ʜɪᴛ ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ғᴏʀ ʜᴇʟᴘ||</b></blockquote>""",
             reply_markup=InlineKeyboardMarkup(HELP_START),
         )
         await add_served_user(m.from_user.id)
