@@ -25,12 +25,12 @@ DEV_OP = [
 ]
 
 PNG_BTN = [
-    [
-        InlineKeyboardButton(
-            text="🧸 ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ 🧸",
-            url=f"https://t.me/{MickeyBot.username}?startgroup=true",
-        ),
-    ],
+    # [
+    #     InlineKeyboardButton(
+    #         text="🧸 ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ 🧸",
+    #         url=f"https://t.me/{MickeyBot.username}?startgroup=true",
+    #     ),
+    # ],
     [
         InlineKeyboardButton(
             text="✨ ᴄʟᴏsᴇ ✨",
