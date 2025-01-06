@@ -296,13 +296,13 @@ async def help(client: nexichat, m: Message):
         await add_served_chat(m.chat.id)
 
 
-@nexichat.on_cmd("repo")
-async def repo(_, m: Message):
-    await m.reply_text(
-        text=SOURCE_READ,
-        reply_markup=InlineKeyboardMarkup(CLOSE_BTN),
-        disable_web_page_preview=True,
-    )
+# @nexichat.on_cmd("repo")
+# async def repo(_, m: Message):
+#     await m.reply_text(
+#         text=SOURCE_READ,
+#         reply_markup=InlineKeyboardMarkup(CLOSE_BTN),
+#         disable_web_page_preview=True,
+#     )
 
 
 
