@@ -7,16 +7,16 @@ from nexichat import OWNER, nexichat
 START_BOT = [
     [
         InlineKeyboardButton(
-            text="😍 ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ 😍",
+            text="𝐓𝐚𝐜𝐤 𝐌𝐞 𝐓𝐨 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩",
             url=f"https://t.me/{nexichat.username}?startgroup=true",
         ),
     ],
     [
-        InlineKeyboardButton(text="🥀 ᴏᴡɴᴇʀ 🥀", user_id=OWNER),
+        InlineKeyboardButton(text="𝐀𝐤𝐚𝐬𝐡", user_id=OWNER),
         InlineKeyboardButton(text="✨ ꜱᴜᴘᴘᴏʀᴛ ✨", url=f"https://t.me/{SUPPORT_GRP}"),
     ],
     [
-        InlineKeyboardButton(text="« ғᴇᴀᴛᴜʀᴇs »", callback_data="HELP"),
+        InlineKeyboardButton(text="𝐒𝐊𝐈𝐋𝐒", callback_data="HELP"),
     ],
 ]
 
@@ -28,7 +28,7 @@ DEV_OP = [
     ],
     [
         InlineKeyboardButton(
-            text="✦ ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ ✦",
+            text="✦ 𝐓𝐚𝐜𝐤 𝐌𝐞 𝐓𝐨 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩 ✦",
             url=f"https://t.me/{nexichat.username}?startgroup=true",
         ),
     ],
@@ -44,7 +44,7 @@ DEV_OP = [
 PNG_BTN = [
     [
         InlineKeyboardButton(
-            text="😍 ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ 😍",
+            text="𝐓𝐚𝐜𝐤 𝐌𝐞 𝐓𝐨 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩",
             url=f"https://t.me/{nexichat.username}?startgroup=true",
         ),
     ],
