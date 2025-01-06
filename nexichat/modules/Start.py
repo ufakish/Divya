@@ -245,7 +245,7 @@ async def ls(_, m: Message):
             )
     else:
         await m.reply_text(msg)
-@MickeyBot.on_cmd(["start", "aistart"])
+@nexichat.on_cmd(["start", "aistart"])
 async def start(_, m: Message):
     if m.chat.type == ChatType.PRIVATE:
         accha = await m.reply_text(
