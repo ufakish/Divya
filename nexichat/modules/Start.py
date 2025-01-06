@@ -284,10 +284,11 @@ async def start(_, m: Message):
         # await accha.delete()
         
         umm = await m.reply_sticker(sticker=random.choice(STICKER))
-        await m.reply_photo(
-            photo=random.choice(IMG),
-            # caption=f"""<blockquote>**๏dd ʜᴇʏ, ɪ ᴀᴍ **\n**➻ ᴀɴ ᴀɪ ʙᴀsᴇᴅ ᴄʜᴀᴛʙᴏᴛ.**\n**──────────────**\n**➻ ᴜsᴀɢᴇ /chatbot [ᴏɴ/ᴏғғ]**\n</blockquote><blockquote><b>||๏ ʜɪᴛ ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ғᴏʀ ʜᴇʟᴘ||</b></blockquote>""",
-            caption=START,
+        await asyncio.sleep(2)
+        await umm.delete()
+        photo=random.choice(IMG),
+            caption=f"<blockquote><b>๏Aarush ʜᴇʏ,</b> ɪ ᴀᴍ {MickeyBot.name}</blockquote>\n<blockquote>➻ ᴀɴ ᴀɪ ʙᴀsᴇᴅ ᴄʜᴀᴛʙᴏᴛ.</blockquote>\n──────────────\n<blockquote>➻ ᴜsᴀɢᴇ /chatbot [ᴏɴ/ᴏғғ]</blockquote>\n<blockquote><b>||๏ ʜɪᴛ ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ғᴏʀ ʜᴇʟᴘ||</b></blockquote>",
+           # reply_markup=keyboard,
             reply_markup=InlineKeyboardMarkup(HELP_START),
         )
         await add_served_user(m.from_user.id)
@@ -295,10 +296,10 @@ async def start(_, m: Message):
         await m.reply_photo(
             photo=random.choice(IMG),
             caption=START,
-            #parse_mode="HTML",
             reply_markup=InlineKeyboardMarkup(HELP_START),
         )
         await add_served_chat(m.chat.id)
+
 
     #     users = len(await get_served_users())
     #     chats = len(await get_served_chats())
