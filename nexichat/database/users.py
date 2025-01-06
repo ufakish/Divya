@@ -1,5 +1,6 @@
 from nexichat import db
 
+chatsdb = db.chatsdb
 usersdb = db.users
 
 
