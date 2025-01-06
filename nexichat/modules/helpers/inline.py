@@ -9,12 +9,12 @@ DEV_OP = [
         InlineKeyboardButton(text="🥀 ᴏᴡɴᴇʀ 🥀", user_id=OWNER),
         InlineKeyboardButton(text="✨ ꜱᴜᴘᴘᴏʀᴛ ✨", url=f"https://t.me/{SUPPORT_GRP}"),
     ],
-    [
-        InlineKeyboardButton(
-            text="🧸 ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ 🧸",
-            url=f"https://t.me/{nexichat.username}?startgroup=true",
-        ),
-    ],
+    # [
+    #     InlineKeyboardButton(
+    #         text="🧸 ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ 🧸",
+    #         url=f"https://t.me/{nexichat.username}?startgroup=true",
+    #     ),
+    # ],
     [
         InlineKeyboardButton(text="🚀 ʜᴇʟᴘ & ᴄᴍᴅs 🚀", callback_data="HELP"),
     ],
