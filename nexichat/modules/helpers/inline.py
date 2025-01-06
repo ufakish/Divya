@@ -13,11 +13,11 @@ START_BOT = [
     ],
     [
         InlineKeyboardButton(text="𝐀𝐤𝐚𝐬𝐡", user_id=OWNER),
-        InlineKeyboardButton(text="✨ ꜱᴜᴘᴘᴏʀᴛ ✨", url=f"https://t.me/{SUPPORT_GRP}"),
+        # InlineKeyboardButton(text="✨ ꜱᴜᴘᴘᴏʀᴛ ✨", url=f"https://t.me/{SUPPORT_GRP}"),
     ],
-    [
-        InlineKeyboardButton(text="𝐒𝐊𝐈𝐋𝐒", callback_data="HELP"),
-    ],
+    # [
+    #     InlineKeyboardButton(text="𝐒𝐊𝐈𝐋𝐒", callback_data="HELP"),
+    # ],
 ]
 
 
@@ -71,7 +71,9 @@ HELP_BTN = [
     ],
     [
         InlineKeyboardButton(text="⦿ ᴄʟᴏsᴇ ⦿", callback_data="CLOSE"),
+        InlineKeyboardButton(text="⦿ ʙᴀᴄᴋ ⦿", callback_data="BACK"),
     ],
+    
 ]
 
 
@@ -84,8 +86,8 @@ CLOSE_BTN = [
 
 CHATBOT_ON = [
     [
-        InlineKeyboardButton(text="ᴇɴᴀʙʟᴇ", callback_data="enable_chatbot"),
-        InlineKeyboardButton(text="ᴅɪsᴀʙʟᴇ", callback_data="disable_chatbot"),
+        InlineKeyboardButton(text="YES", callback_data="enable_chatbot"),
+        InlineKeyboardButton(text="NO", callback_data="disable_chatbot"),
     ],
 ]
 
