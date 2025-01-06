@@ -8,6 +8,7 @@ from nexichat import _boot_
 from nexichat import get_readable_time
 from nexichat import nexichat, mongo
 from datetime import datetime
+from telegram import MessageEntity
 from pymongo import MongoClient
 from pyrogram.enums import ChatType
 from pyrogram import Client, filters
