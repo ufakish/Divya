@@ -8,11 +8,14 @@ from nexichat import _boot_
 from nexichat import get_readable_time
 from nexichat import nexichat, mongo
 from datetime import datetime
+from config import MONGO_DB_URI
+from ..logging import LOGGER
 #from telegram import MessageEntity
 from pymongo import MongoClient
 from pyrogram.enums import ChatType
 from pyrogram import Client, filters
 from config import OWNER_ID, MONGO_URL, OWNER_USERNAME
+from motor.motor_asyncio import AsyncIOMotorClient
 from pyrogram.errors import FloodWait, ChatAdminRequired
 from nexichat.database.chats import get_served_chats, add_served_chat
 from nexichat.database.users import get_served_users, add_served_user
@@ -68,6 +71,16 @@ IMG = [
     "https://graph.org/file/e8b472bcfa6680f6c6a5d.jpg",
 ]
 
+
+
+LOGGER(__name__).info("Connecting to your Mongo Database...")
+try:
+    _mongo_async_ = AsyncIOMotorClient(MONGO_DB_URI)
+    mongodb = _mongo_async_.Yukki
+    LOGGER(__name__).info("Connected to your Mongo Database.")
+except:
+    LOGGER(__name__).error("Failed to connect to your Mongo Database.")
+    exit()
 
 
 from nexichat import db
@@ -401,148 +414,101 @@ IS_BROADCASTING = False
 broadcast_lock = asyncio.Lock()
 
 
-@nexichat.on_message(
-    filters.command(["broadcast", "gcast"]) & filters.user(int(OWNER_ID))
-)
+
+@nexichat.on_message(cdx(["broadcast", "gcast"]) & bot_owner_only)
 async def broadcast_message(client, message):
-    global IS_BROADCASTING
-    async with broadcast_lock:
-        if IS_BROADCASTING:
-            return await message.reply_text(
-                "A broadcast is already in progress. Please wait for it to complete."
-            )
-
-        IS_BROADCASTING = True
-        try:
-            query = message.text.split(None, 1)[1].strip()
-        except IndexError:
-            query = message.text.strip()
-        except Exception as eff:
-            return await message.reply_text(
-                f"**Error**: {eff}"
-            )
-        try:
-            if message.reply_to_message:
-                broadcast_content = message.reply_to_message
-                broadcast_type = "reply"
-                flags = {
-                    "-pin": "-pin" in query,
-                    "-pinloud": "-pinloud" in query,
-                    "-nogroup": "-nogroup" in query,
-                    "-user": "-user" in query,
-                }
-            else:
-                if len(message.command) < 2:
-                    return await message.reply_text(
-                        "**Please provide text after the command or reply to a message for broadcasting.**"
-                    )
-                
-                flags = {
-                    "-pin": "-pin" in query,
-                    "-pinloud": "-pinloud" in query,
-                    "-nogroup": "-nogroup" in query,
-                    "-user": "-user" in query,
-                }
-
-                for flag in flags:
-                    query = query.replace(flag, "").strip()
-
-                if not query:
-                    return await message.reply_text(
-                        "Please provide a valid text message or a flag: -pin, -nogroup, -pinloud, -user"
-                    )
-
-                
-                broadcast_content = query
-                broadcast_type = "text"
-            
-
-            await message.reply_text("**Started broadcasting...**")
-
-            if not flags.get("-nogroup", False):
-                sent = 0
-                pin_count = 0
-                chats = await get_served_chats()
-
-                for chat in chats:
-                    chat_id = int(chat["chat_id"])
-                    if chat_id == message.chat.id:
-                        continue
-                    try:
-                        if broadcast_type == "reply":
-                            m = await nexichat.forward_messages(
-                                chat_id, message.chat.id, [broadcast_content.id]
-                            )
-                        else:
-                            m = await nexichat.send_message(
-                                chat_id, text=broadcast_content
-                            )
-                        sent += 1
-
-                        if flags.get("-pin", False) or flags.get("-pinloud", False):
-                            try:
-                                await m.pin(
-                                    disable_notification=flags.get("-pin", False)
-                                )
-                                pin_count += 1
-                            except Exception as e:
-                                continue
-
-                    except FloodWait as e:
-                        flood_time = int(e.value)
-                        logger.warning(
-                            f"FloodWait of {flood_time} seconds encountered for chat {chat_id}."
-                        )
-                        if flood_time > 200:
-                            logger.info(
-                                f"Skipping chat {chat_id} due to excessive FloodWait."
-                            )
-                            continue
-                        await asyncio.sleep(flood_time)
-                    except Exception as e:
-                        
-                        continue
-
-                await message.reply_text(
-                    f"**Broadcasted to {sent} chats and pinned in {pin_count} chats.**"
-                )
-
-            if flags.get("-user", False):
-                susr = 0
-                users = await get_served_users()
-
-                for user in users:
-                    user_id = int(user["user_id"])
-                    try:
-                        if broadcast_type == "reply":
-                            m = await nexichat.forward_messages(
-                                user_id, message.chat.id, [broadcast_content.id]
-                            )
-                        else:
-                            m = await nexichat.send_message(
-                                user_id, text=broadcast_content
-                            )
-                        susr += 1
-
-                    except FloodWait as e:
-                        flood_time = int(e.value)
-                        logger.warning(
-                            f"FloodWait of {flood_time} seconds encountered for user {user_id}."
-                        )
-                        if flood_time > 200:
-                            logger.info(
-                                f"Skipping user {user_id} due to excessive FloodWait."
-                            )
-                            continue
-                        await asyncio.sleep(flood_time)
-                    except Exception as e:
-                        
-                        continue
-
-                await message.reply_text(f"**Broadcasted to {susr} users.**")
-
-        finally:
-            IS_BROADCASTING = False
-
-
+    try:
+        await message.delete()
+    except:
+        pass
+    if message.reply_to_message:
+        x = message.reply_to_message.id
+        y = message.chat.id
+    else:
+        if len(message.command) < 2:
+            return await message.reply_text("**♻️ Usage**:\n/broadcast [Message] Or [Reply To a Message]")
+        query = message.text.split(None, 1)[1]
+        if "-pin" in query:
+            query = query.replace("-pin", "")
+        if "-nobot" in query:
+            query = query.replace("-nobot", "")
+        if "-pinloud" in query:
+            query = query.replace("-pinloud", "")
+        if "-user" in query:
+            query = query.replace("-user", "")
+        if query == "":
+            return await message.reply_text("**🥀 Please Give Me Some Text To Broadcast❗...**")
     
+    # Bot broadcast inside chats
+    if "-nobot" not in message.text:
+        sent = 0
+        pin = 0
+        chats = []
+        schats = await get_served_chats()
+        for chat in schats:
+            chats.append(int(chat["chat_id"]))
+        for i in chats:
+            try:
+                m = (
+                    await bot.forward_messages(i, y, x)
+                    if message.reply_to_message
+                    else await bot.send_message(i, text=query)
+                )
+                if "-pin" in message.text:
+                    try:
+                        await m.pin(disable_notification=True)
+                        pin += 1
+                    except Exception:
+                        continue
+                elif "-pinloud" in message.text:
+                    try:
+                        await m.pin(disable_notification=False)
+                        pin += 1
+                    except Exception:
+                        continue
+                sent += 1
+            except FloodWait as e:
+                flood_time = int(e.value)
+                if flood_time > 200:
+                    continue
+                await asyncio.sleep(flood_time)
+            except Exception:
+                continue
+        try:
+            await message.reply_text("**✅ Broadcast Messages In {0}  Chats With {1} Pins From Bot.**".format(sent, pin))
+        except:
+            pass
+
+    # Bot broadcasting to users
+    if "-user" in message.text:
+        susr = 0
+        served_users = []
+        susers = await get_served_users()
+        for user in susers:
+            served_users.append(int(user["user_id"]))
+        for i in served_users:
+            try:
+                m = (
+                    await bot.forward_messages(i, y, x)
+                    if message.reply_to_message
+                    else await bot.send_message(i, text=query)
+                )
+                susr += 1
+            except FloodWait as e:
+                flood_time = int(e.value)
+                if flood_time > 200:
+                    continue
+                await asyncio.sleep(flood_time)
+            except Exception:
+                pass
+        try:
+            await message.reply_text("**✅ Broadcast Messages To {0} Users.**".format(susr))
+        except:
+            pass
+
+
+
+
+
+if __name__ == "__main__":
+    loop.run_until_complete(main())
