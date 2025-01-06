@@ -246,7 +246,6 @@ async def ls(_, m: Message):
     else:
         await m.reply_text(msg)
 
-
 @nexichat.on_cmd(["start", "aistart"])
 async def start(_, m: Message):
     users = len(await get_served_users())
@@ -258,66 +257,57 @@ async def start(_, m: Message):
         await asyncio.sleep(0.5)
         
      
-        # await accha.edit("**__ꨄ︎ ѕ__**")
-        # await asyncio.sleep(0.01)
-        # await accha.edit("**__ꨄ sт__**")
-        # await asyncio.sleep(0.01)
-        # await accha.edit("**__ꨄ︎ ѕтα__**")
-        # await asyncio.sleep(0.01)
-        # await accha.edit("**__ꨄ︎ ѕтαя__**")
-        # await asyncio.sleep(0.01)
-        # await accha.edit("**__ꨄ sтαят__**")
-        # await asyncio.sleep(0.01)
-        # await accha.edit("**__ꨄ︎ sтαятι__**")
-        # await asyncio.sleep(0.01)
-        # await accha.edit("**__ꨄ︎ sтαятιи__**")
-        # await asyncio.sleep(0.01)
-        # await accha.edit("**__ꨄ sтαятιиg__**")
-        # await asyncio.sleep(0.01)
-        # await accha.edit("**__ꨄ︎ ѕтαятιиg.__**")
-        # await asyncio.sleep(0.1)
-        # await accha.edit("**__ꨄ sтαятιиg.....__**")
-        # await asyncio.sleep(0.1)
-        # await accha.edit("**__ꨄ︎ ѕтαятιиg.__**")
-        # await asyncio.sleep(0.1)
-        # await accha.edit("**__ꨄ sтαятιиg.....__**")
-        # await accha.delete()
+        await accha.edit("**__ꨄ︎ ѕ__**")
+        await asyncio.sleep(0.01)
+        await accha.edit("**__ꨄ sт__**")
+        await asyncio.sleep(0.01)
+        await accha.edit("**__ꨄ︎ ѕтα__**")
+        await asyncio.sleep(0.01)
+        await accha.edit("**__ꨄ︎ ѕтαя__**")
+        await asyncio.sleep(0.01)
+        await accha.edit("**__ꨄ sтαят__**")
+        await asyncio.sleep(0.01)
+        await accha.edit("**__ꨄ︎ sтαятι__**")
+        await asyncio.sleep(0.01)
+        await accha.edit("**__ꨄ︎ sтαятιи__**")
+        await asyncio.sleep(0.01)
+        await accha.edit("**__ꨄ sтαятιиg__**")
+        await asyncio.sleep(0.01)
+        await accha.edit("**__ꨄ︎ ѕтαятιиg.__**")
+        await asyncio.sleep(0.1)
+        await accha.edit("**__ꨄ sтαятιиg.....__**")
+        await asyncio.sleep(0.1)
+        await accha.edit("**__ꨄ︎ ѕтαятιиg.__**")
+        await asyncio.sleep(0.1)
+        await accha.edit("**__ꨄ sтαятιиg.....__**")
+        await accha.delete()
         
         umm = await m.reply_sticker(sticker=random.choice(STICKER))
-        await asyncio.sleep(2)
-        await umm.delete()
-        photo=random.choice(IMG),
+        chat_photo = BOT  
+        if m.chat.photo:
+            try:
+                userss_photo = await nexichat.download_media(m.chat.photo.big_file_id)
+                await umm.delete()
+                if userss_photo:
+                    chat_photo = userss_photo
+            except AttributeError:
+                chat_photo = BOT  
+
+        users = len(await get_served_users())
+        chats = len(await get_served_chats())
+        UP, CPU, RAM, DISK = await bot_sys_stats()
+        await m.reply_photo(photo=chat_photo, caption=START.format(nexichat.mention or "can't mention", users, chats, UP), reply_markup=InlineKeyboardMarkup(START_BOT))
+        await add_served_user(m.chat.id)
+        keyboard = InlineKeyboardMarkup([[InlineKeyboardButton(f"{m.chat.first_name}", user_id=m.chat.id)]])
+        await nexichat.send_photo(int(OWNER_ID), photo=chat_photo, caption=f"{m.from_user.mention} ʜᴀs sᴛᴀʀᴛᴇᴅ ʙᴏᴛ. \n\n**ɴᴀᴍᴇ :** {m.chat.first_name}\n**ᴜsᴇʀɴᴀᴍᴇ :** @{m.chat.username}\n**ɪᴅ :** {m.chat.id}\n\n**ᴛᴏᴛᴀʟ ᴜsᴇʀs :** {users}", reply_markup=keyboard)
         
-            #caption=f"""<blockquote><b>๏Aarush ʜᴇʏ,</b> ɪ ᴀᴍ AARUSH</blockquote>\n<blockquote>➻ ᴀɴ ᴀɪ ʙᴀsᴇᴅ ᴄʜᴀᴛʙᴏᴛ.</blockquote>\n──────────────\n<blockquote>➻ ᴜsᴀɢᴇ /chatbot [ᴏɴ/ᴏғғ]</blockquote>\n<blockquote><b>||๏ ʜɪᴛ ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ғᴏʀ ʜᴇʟᴘ||</b></blockquote>""",
-           # reply_markup=keyboard,
-            reply_markup=InlineKeyboardMarkup(HELP_START),
-        )
-        await add_served_user(m.from_user.id)
     else:
         await m.reply_photo(
             photo=random.choice(IMG),
-            caption=START,
+            caption=GSTART.format(m.from_user.mention or "can't mention"),
             reply_markup=InlineKeyboardMarkup(HELP_START),
         )
         await add_served_chat(m.chat.id)
-
-
-    #     users = len(await get_served_users())
-    #     chats = len(await get_served_chats())
-    #     UP, CPU, RAM, DISK = await bot_sys_stats()
-    #     await m.reply_photo(photo=chat_photo, caption=START.format(nexichat.mention or "can't mention", users, chats, UP), reply_markup=InlineKeyboardMarkup(START_BOT))
-    #     await add_served_user(m.chat.id)
-    #     keyboard = InlineKeyboardMarkup([[InlineKeyboardButton(f"{m.chat.first_name}", user_id=m.chat.id)]])
-    #     await nexichat.send_photo(int(OWNER_ID), photo=chat_photo, caption=f"{m.from_user.mention} ʜᴀs sᴛᴀʀᴛᴇᴅ ʙᴏᴛ. \n\n**ɴᴀᴍᴇ :** {m.chat.first_name}\n**ᴜsᴇʀɴᴀᴍᴇ :** @{m.chat.username}\n**ɪᴅ :** {m.chat.id}\n\n**ᴛᴏᴛᴀʟ ᴜsᴇʀs :** {users}", reply_markup=keyboard)
-        
-    # else:
-    #     await m.reply_photo(
-    #         photo=random.choice(IMG),
-    #         caption=GSTART.format(m.from_user.mention or "can't mention"),
-    #         reply_markup=InlineKeyboardMarkup(HELP_START),
-    #     )
-    #     await add_served_chat(m.chat.id)
-
 
 @nexichat.on_cmd("help")
 async def help(client: nexichat, m: Message):
