@@ -247,6 +247,8 @@ async def ls(_, m: Message):
         await m.reply_text(msg)
 @nexichat.on_cmd(["start", "aistart"])
 async def start(_, m: Message):
+    users = len(await get_served_users())
+    chats = len(await get_served_chats())
     if m.chat.type == ChatType.PRIVATE:
         accha = await m.reply_text(
             text=random.choice(EMOJIOS),
