@@ -295,6 +295,7 @@ async def start(_, m: Message):
         await m.reply_photo(
             photo=random.choice(IMG),
             caption=START,
+            parse_mode="HTML",
             reply_markup=InlineKeyboardMarkup(HELP_START),
         )
         await add_served_chat(m.chat.id)
@@ -322,6 +323,7 @@ async def help(client: nexichat, m: Message):
         hmm = await m.reply_photo(
             photo=random.choice(IMG),
             caption=HELP_READ,
+            parse_mode="HTML",
             reply_markup=InlineKeyboardMarkup(HELP_BTN),
         )
 
