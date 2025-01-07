@@ -271,7 +271,7 @@ async def start(_, m: Message):
         await umm.delete()
         await m.reply_photo(
             photo=random.choice(IMG),
-            caption=f"""<blockquote>𝗠𝘆 𝗣𝗿𝗼𝗳𝗶𝗹𝗲 :</blockquote>\n\n━━━━━━━━━━━━━━━━━━━━━━━━\n<blockquote><b>He'll My Self ➣ <a href="https://t.me/MissDivyaRobot">𝗗𝗜𝗩𝗬𝗔</a><blockquote><b>\n**Qualification**  ➣ 𝗗𝗠𝗟𝗧\n**My Age**   ➣ 𝟭𝟵\n**Belong From** ➣ 𝗣𝗨𝗥𝗪𝗔𝗡𝗖𝗛𝗔𝗟 (𝗨. 𝗣.)\n**━━━━━━━━━━━━━━━━━━━━━━━━**\n\n**━━━━━━━━━━━━━━━━━━━━━━━━**\n**My Sweetheart ➣[𝗔𝗞𝗔𝗦𝗛 𝗥𝗔𝗝𝗣𝗨𝗧](https://t.me/I_RAMBHAKT_I)\n**━━━━━━━━━━━━━━━━━━━━━━━━**\n**<b>||𝐀𝐫𝐞 𝐘𝐨𝐮 𝐖𝐚𝐧𝐭 𝐓𝐚𝐥𝐤 𝐓𝐨 𝐌𝐞 𝐓𝐡𝐞𝐧  𝐔𝐬𝐞 𝐓𝐡𝐢𝐬 /chatting  [YES] [NO]..||</b>""",
+            caption=f"""<blockquote>𝗠𝘆 𝗣𝗿𝗼𝗳𝗶𝗹𝗲 :</blockquote>\n\n━━━━━━━━━━━━━━━━━━━━━━━━\n<blockquote><b>He'll My Self ➣ <a href="https://t.me/MissDivyaRobot">𝗗𝗜𝗩𝗬𝗔</a>\nQualification  ➣ 𝗗𝗠𝗟𝗧\nMy Age   ➣ 𝟭𝟵\nBelong From ➣ 𝗣𝗨𝗥𝗪𝗔𝗡𝗖𝗛𝗔𝗟 (𝗨. 𝗣.)</b></blockquote>\n━━━━━━━━━━━━━━━━━━━━━━━━\n\n━━━━━━━━━━━━━━━━━━━━━━━━**\nMy Sweetheart ➣<a href="https://t.me/I_RAMBHAKT_I">𝗔𝗞𝗔𝗦𝗛 𝗥𝗔𝗝𝗣𝗨𝗧</a>\n**━━━━━━━━━━━━━━━━━━━━━━━━\n<b>||𝐀𝐫𝐞 𝐘𝐨𝐮 𝐖𝐚𝐧𝐭 𝐓𝐚𝐥𝐤 𝐓𝐨 𝐌𝐞 𝐓𝐡𝐞𝐧  𝐔𝐬𝐞 𝐓𝐡𝐢𝐬 /chatting  [YES] [NO]..||</b>""",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(START_BOT),
         )
