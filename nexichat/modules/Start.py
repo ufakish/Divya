@@ -8,7 +8,7 @@ from nexichat import _boot_
 from nexichat import get_readable_time
 from nexichat import nexichat, mongo
 from datetime import datetime
-from config import MONGO_DB_URI
+from config import MONGO_URL
 from ..logging import LOGGER
 #from telegram import MessageEntity
 from pymongo import MongoClient
