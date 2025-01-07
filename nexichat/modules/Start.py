@@ -271,7 +271,7 @@ async def start(_, m: Message):
         await umm.delete()
         await m.reply_photo(
             photo=random.choice(IMG),
-            caption=f"""<blockquote>𝗠𝘆 𝗣𝗿𝗼𝗳𝗶𝗹𝗲 :</blockquote>\n\n━━━━━━━━━━━━━━━━━━━━━━━━\n<blockquote><b>He'll My Self ➣ <a href="https://t.me/MissDivyaRobot">𝗗𝗜𝗩𝗬𝗔</a>\nQualification  ➣ 𝗗𝗠𝗟𝗧\nMy Age   ➣ 𝟭𝟵\nBelong From ➣ 𝗣𝗨𝗥𝗪𝗔𝗡𝗖𝗛𝗔𝗟 (𝗨. 𝗣.)</b></blockquote>\n━━━━━━━━━━━━━━━━━━━━━━━━\n<blockquote><b>My Sweetheart ➣</b><a href="https://t.me/I_RAMBHAKT_I">𝗔𝗞𝗔𝗦𝗛 𝗥𝗔𝗝𝗣𝗨𝗧</a></blockquote>\n━━━━━━━━━━━━━━━━━━━━━━━━\n<b>||Are You Want You Chat To Me Use This-  /chatting  [YES] [NO]</b>""",
+            caption=f"""<blockquote>𝗠𝘆 𝗣𝗿𝗼𝗳𝗶𝗹𝗲 :</blockquote>\n\n━━━━━━━━━━━━━━━━━━━━━━━━\n<blockquote><b>He'll My Self ➣ <a href="https://t.me/MissDivyaRobot">𝗗𝗜𝗩𝗬𝗔</a>\n\nMy Age   ➣ 𝟭𝟵\n\nQualification  ➣ 𝗗𝗠𝗟𝗧\n\nBelong From ➣ 𝗣𝗨𝗥𝗪𝗔𝗡𝗖𝗛𝗔𝗟 (𝗨. 𝗣.)</b></blockquote>\n━━━━━━━━━━━━━━━━━━━━━━━━\n<blockquote><b>My Sweetheart ➣</b><a href="https://t.me/I_RAMBHAKT_I">𝗔𝗞𝗔𝗦𝗛 𝗥𝗔𝗝𝗣𝗨𝗧</a></blockquote>\n━━━━━━━━━━━━━━━━━━━━━━━━\n<b><blockquote>||Are You Want You Chat To Me Use This-  /chatting  [YES] [NO]</b><blockquote>""",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(START_BOT),
         )
