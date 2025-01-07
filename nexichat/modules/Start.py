@@ -9,7 +9,7 @@ from nexichat import get_readable_time
 from nexichat import nexichat, mongo
 from datetime import datetime
 from config import MONGO_URL
-from ..logging import LOGGER
+#from ..logging import LOGGER
 #from telegram import MessageEntity
 from pymongo import MongoClient
 from pyrogram.enums import ChatType
@@ -72,15 +72,6 @@ IMG = [
 ]
 
 
-
-LOGGER(__name__).info("Connecting to your Mongo Database...")
-try:
-    _mongo_async_ = AsyncIOMotorClient(MONGO_URL) 
-    mongodb = _mongo_async_.Yukki
-    LOGGER(__name__).info("Connected to your Mongo Database.")
-except:
-    LOGGER(__name__).error("Failed to connect to your Mongo Database.")
-    exit()
 
 
 from nexichat import db
