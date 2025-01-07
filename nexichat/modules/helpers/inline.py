@@ -28,7 +28,7 @@ DEV_OP = [
     ],
     [
         InlineKeyboardButton(
-            text="✦ 𝐓𝐚𝐜𝐤 𝐌𝐞 𝐓𝐨 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩 ✦",
+            text="✦ 𝐓𝐚𝐤𝐞 𝐌𝐞 𝐓𝐨 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩 ✦",
             url=f"https://t.me/{nexichat.username}?startgroup=true",
         ),
     ],
@@ -44,7 +44,7 @@ DEV_OP = [
 PNG_BTN = [
     [
         InlineKeyboardButton(
-            text="𝐓𝐚𝐜𝐤 𝐌𝐞 𝐓𝐨 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩",
+            text="𝐓𝐚𝐤𝐞 𝐌𝐞 𝐓𝐨 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩",
             url=f"https://t.me/{nexichat.username}?startgroup=true",
         ),
     ],
