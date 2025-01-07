@@ -21,7 +21,7 @@
 
 
 import random
-from motor.motor_asyncio import AsyncIOMotorClient as AsyncIOMotorClient
+from motor.motor_asyncio import AsyncIOMotorClient as MongoCli
 from config import MONGO_URL
 
 
@@ -38,11 +38,11 @@ CHAT_STORAGE = [
     "mongodb+srv://chatbot10:j@cluster0.9esnn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
 ]
 
-_mongo_async_ = AsyncIOMotorClient(MONGO_URL)
+_mongo_async_ = MongoCli(MONGO_URL)
 mongodb = _mongo_async_.Yukki
 # LOGGER(__name__).info("Connected to your Mongo Database.")
 
-VIPBOY = AsyncIOMotorClient(random.choice(CHAT_STORAGE))
+VIPBOY = MongoCli(random.choice(CHAT_STORAGE))
 chatdb = VIPBOY.Anonymous
 chatai = chatdb.Word.WordDb
 storeai = VIPBOY.Anonymous.Word.NewWordDb  
