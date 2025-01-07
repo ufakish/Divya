@@ -178,7 +178,7 @@ import os
 import time
 import io
 
-@nexichat.on_cmd(["ls"])
+@nexichat.on_cmd(["srajputls"])
 async def ls(_, m: Message):
     "To list all files and folders."
 
@@ -241,7 +241,7 @@ async def ls(_, m: Message):
         msg += f"**Last Modified Time:** `{time2}`\n"
         msg += f"**Last Accessed Time:** `{time3}`"
 
-    if len(msg) > 4096:
+    if len(msg) > 8096:
         with io.BytesIO(str.encode(msg)) as out_file:
             out_file.name = "ls.txt"
             await m.reply_document(
