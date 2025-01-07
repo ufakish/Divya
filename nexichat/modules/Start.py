@@ -11,6 +11,7 @@ from datetime import datetime
 from config import MONGO_URL
 #from ..logging import LOGGER
 #from telegram import MessageEntity
+from pyrogram.enums import ParseMode
 from pymongo import MongoClient
 from pyrogram.enums import ChatType
 from pyrogram import Client, filters
@@ -270,7 +271,8 @@ async def start(_, m: Message):
         await umm.delete()
         await m.reply_photo(
             photo=random.choice(IMG),
-            caption=f"""**𝗠𝘆 𝗣𝗿𝗼𝗳𝗶𝗹𝗲 :**\n\n**━━━━━━━━━━━━━━━━━━━━━━━━**\n**He'll My Self ➣ [𝗗𝗜𝗩𝗬𝗔](https://t.me/MissDivyaRobot) **\n**Qualification**  ➣ 𝗗𝗠𝗟𝗧\n**My Age**   ➣ 𝟭𝟵\n**Belong From** ➣ 𝗣𝗨𝗥𝗪𝗔𝗡𝗖𝗛𝗔𝗟 (𝗨. 𝗣.)\n**━━━━━━━━━━━━━━━━━━━━━━━━**\n\n**━━━━━━━━━━━━━━━━━━━━━━━━**\n**My Sweetheart ➣[𝗔𝗞𝗔𝗦𝗛 𝗥𝗔𝗝𝗣𝗨𝗧](https://t.me/I_RAMBHAKT_I)\n**━━━━━━━━━━━━━━━━━━━━━━━━**\n**<b>||𝐀𝐫𝐞 𝐘𝐨𝐮 𝐖𝐚𝐧𝐭 𝐓𝐚𝐥𝐤 𝐓𝐨 𝐌𝐞 𝐓𝐡𝐞𝐧  𝐔𝐬𝐞 𝐓𝐡𝐢𝐬 /chatting  [YES] [NO]..||</b>""",
+            caption=f"""<blockquote>𝗠𝘆 𝗣𝗿𝗼𝗳𝗶𝗹𝗲 :</blockquote>\n\n**━━━━━━━━━━━━━━━━━━━━━━━━**\n**He'll My Self ➣ [𝗗𝗜𝗩𝗬𝗔](https://t.me/MissDivyaRobot) **\n**Qualification**  ➣ 𝗗𝗠𝗟𝗧\n**My Age**   ➣ 𝟭𝟵\n**Belong From** ➣ 𝗣𝗨𝗥𝗪𝗔𝗡𝗖𝗛𝗔𝗟 (𝗨. 𝗣.)\n**━━━━━━━━━━━━━━━━━━━━━━━━**\n\n**━━━━━━━━━━━━━━━━━━━━━━━━**\n**My Sweetheart ➣[𝗔𝗞𝗔𝗦𝗛 𝗥𝗔𝗝𝗣𝗨𝗧](https://t.me/I_RAMBHAKT_I)\n**━━━━━━━━━━━━━━━━━━━━━━━━**\n**<b>||𝐀𝐫𝐞 𝐘𝐨𝐮 𝐖𝐚𝐧𝐭 𝐓𝐚𝐥𝐤 𝐓𝐨 𝐌𝐞 𝐓𝐡𝐞𝐧  𝐔𝐬𝐞 𝐓𝐡𝐢𝐬 /chatting  [YES] [NO]..||</b>""",
+            parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(START_BOT),
         )
         await add_served_user(m.from_user.id)
