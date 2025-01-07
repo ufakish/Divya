@@ -7,13 +7,13 @@ from nexichat import OWNER, nexichat
 START_BOT = [
     [
         InlineKeyboardButton(
-            text="𝐓𝐚𝐜𝐤 𝐌𝐞 𝐓𝐨 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩",
+            text="𝐓𝐚𝐤𝐞 𝐌𝐞 𝐓𝐨 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩",
             url=f"https://t.me/{nexichat.username}?startgroup=true",
         ),
     ],
     [
-        InlineKeyboardButton(text="𝐀𝐤𝐚𝐬𝐡", user_id=OWNER),
-        # InlineKeyboardButton(text="✨ ꜱᴜᴘᴘᴏʀᴛ ✨", url=f"https://t.me/{SUPPORT_GRP}"),
+        InlineKeyboardButton(text="𝗔𝗞𝗔𝗦𝗛 𝗥𝗔𝗝𝗣𝗨𝗧", user_id=OWNER),
+        # InlineKeyboardButton(text=" ꜱᴜᴘᴘᴏʀᴛ ", url=f"https://t.me/{SUPPORT_GRP}"),
     ],
     # [
     #     InlineKeyboardButton(text="𝐒𝐊𝐈𝐋𝐒", callback_data="HELP"),
@@ -65,10 +65,10 @@ BACK = [
 
 
 HELP_BTN = [
-    [
-        InlineKeyboardButton(text="🐳 ᴄʜᴀᴛʙᴏᴛ 🐳", callback_data="CHATBOT_CMD"),
-        InlineKeyboardButton(text="🎄 ᴛᴏᴏʟs 🎄", callback_data="TOOLS_DATA"),
-    ],
+    # [
+    #     InlineKeyboardButton(text="🐳 ᴄʜᴀᴛʙᴏᴛ 🐳", callback_data="CHATBOT_CMD"),
+    #     InlineKeyboardButton(text="🎄 ᴛᴏᴏʟs 🎄", callback_data="TOOLS_DATA"),
+    # ],
     [
         InlineKeyboardButton(text="⦿ ᴄʟᴏsᴇ ⦿", callback_data="CLOSE"),
         InlineKeyboardButton(text="⦿ ʙᴀᴄᴋ ⦿", callback_data="BACK"),
@@ -124,9 +124,9 @@ HELP_START = [
 
 HELP_BUTN = [
     [
-        InlineKeyboardButton(
-            text="« ʜᴇʟᴘ »", url=f"https://t.me/{nexichat.username}?start=help"
-        ),
+        # InlineKeyboardButton(
+        #     text="« ʜᴇʟᴘ »", url=f"https://t.me/{nexichat.username}?start=help"
+        # ),
         InlineKeyboardButton(text="⦿ ᴄʟᴏsᴇ ⦿", callback_data="CLOSE"),
     ],
 ]
