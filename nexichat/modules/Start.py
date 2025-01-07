@@ -406,7 +406,9 @@ broadcast_lock = asyncio.Lock()
 
 
 
-@nexichat.on_message(cdx(["broadcast", "gcast"]) & bot_owner_only)
+@nexichat.on_message(
+    filters.command(["broadcast", "gcast"]) & filters.user(int(OWNER_ID))
+)
 async def broadcast_message(client, message):
     try:
         await message.delete()
