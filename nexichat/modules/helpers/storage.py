@@ -21,7 +21,7 @@
 
 
 import random
-from motor.motor_asyncio import AsyncIOMotorClient as MongoCli
+from motor.motor_asyncio import AsyncIOMotorClient as AsyncIOMotorClient
 from config import MONGO_URL
 
 
@@ -42,7 +42,7 @@ _mongo_async_ = AsyncIOMotorClient(MONGO_URL)
 mongodb = _mongo_async_.Yukki
 # LOGGER(__name__).info("Connected to your Mongo Database.")
 
-VIPBOY = MongoCli(random.choice(CHAT_STORAGE))
+VIPBOY = AsyncIOMotorClient(random.choice(CHAT_STORAGE))
 chatdb = VIPBOY.Anonymous
 chatai = chatdb.Word.WordDb
 storeai = VIPBOY.Anonymous.Word.NewWordDb  
